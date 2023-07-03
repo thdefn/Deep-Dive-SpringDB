@@ -15,11 +15,22 @@
 
 
 ### JDBC 이해
-#### JDBC `Connection` 인터페이스
-  - jdbc는 java.sql.Connection 표준 커넥션 인터페이스를 정의함
-  - H2 데이터베이스 드라이버는 JDBC Connection 인터페이스를 구현한 `org.h2.jdbc.jdbcConnection` 구현체를 제공
-#### JDBC `DriverManager`
-  - 애플리케이션 로직에서 커넥션이 필요하면 `DriverManager.getConnection()` 호출
-  - `DriverManager`는 라이브러리에 등록된 드라이버 목록을 자동으로 인식 
-  - 이 드라이버들에게 순차적으로 커넥션을 획득할 수 있는지 확인함
-  - 이렇게 찾은 커넥션 구현체가 클라이언트에게 반환됨
+<details>
+<summary>JDBC `Connection` 인터페이스</summary>
+<div markdown="1">
+  
+- jdbc는 java.sql.Connection 표준 커넥션 인터페이스를 정의함
+- H2 데이터베이스 드라이버는 JDBC Connection 인터페이스를 구현한 `org.h2.jdbc.jdbcConnection` 구현체를 제공
+</div>
+</details>
+
+<details>
+<summary>JDBC `DriverManager`</summary>
+<div markdown="1">
+  
+- 애플리케이션 로직에서 커넥션이 필요하면 `DriverManager.getConnection()` 호출
+- `DriverManager`는 라이브러리에 등록된 드라이버 목록을 자동으로 인식 
+- 이 드라이버들에게 순차적으로 커넥션을 획득할 수 있는지 확인함
+- 이렇게 찾은 커넥션 구현체가 클라이언트에게 반환됨
+</div>
+</details>
