@@ -16,7 +16,7 @@
 
 ### JDBC 이해
 <details>
-<summary>JDBC `Connection` 인터페이스</summary>
+<summary>JDBC Connection 인터페이스</summary>
 <div markdown="1">
   
 - jdbc는 java.sql.Connection 표준 커넥션 인터페이스를 정의함
@@ -25,12 +25,24 @@
 </details>
 
 <details>
-<summary>JDBC `DriverManager`</summary>
+<summary>JDBC DriverManager </summary>
 <div markdown="1">
   
 - 애플리케이션 로직에서 커넥션이 필요하면 `DriverManager.getConnection()` 호출
 - `DriverManager`는 라이브러리에 등록된 드라이버 목록을 자동으로 인식 
 - 이 드라이버들에게 순차적으로 커넥션을 획득할 수 있는지 확인함
 - 이렇게 찾은 커넥션 구현체가 클라이언트에게 반환됨
+</div>
+</details>
+
+<details>
+<summary>JDBC ResultSet </summary>
+<div markdown="1">
+
+- `ResultSet`은 다음과 같이 생긴 데이터 구조
+- `Cursor` : `ResultSet` 내부에 있는 커서를 이동해서 데이터를 조회
+  - `rs.next()` 를 호출하면 커서가 이동하고, row 존재 여부를 반환
+    - `rs.next()` 결과가 `true`면 커서의 이동 결과 데이터가 있다는 뜻
+    - `rs.next()` 결과가 `false`면 커서의 이동 결과 데이터가 없다는 뜻
 </div>
 </details>
