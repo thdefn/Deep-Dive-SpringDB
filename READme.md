@@ -39,7 +39,10 @@
 <summary>JDBC ResultSet </summary>
 <div markdown="1">
 
-- `ResultSet`은 다음과 같이 생긴 데이터 구조
+- `ResultSet`은 아래와 같이 생긴 데이터 구조
+
+   ![27B4443359753B7C04](https://github.com/thdefn/Deep-Dive-SpringDB/assets/80521474/a6f12b45-b1f4-4d0b-89ab-7a26092f6c17)
+
 - `Cursor` : `ResultSet` 내부에 있는 커서를 이동해서 데이터를 조회
   - `rs.next()` 를 호출하면 커서가 이동하고, row 존재 여부를 반환
     - `rs.next()` 결과가 `true`면 커서의 이동 결과 데이터가 있다는 뜻
