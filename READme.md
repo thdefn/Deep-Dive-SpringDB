@@ -76,5 +76,11 @@
 - 커넥션 풀을 이용하면 애플리케이션 로직에 DB와 커넥션을 맺는 시간이 소요되지 않는다.
 - 커넥션 풀은 서버 당 최대 커넥션 수를 제한할 수 있어, DB를 보호한다.
 
+  
+  ![image](https://github.com/thdefn/Deep-Dive-SpringDB/assets/80521474/45434bc9-b7b2-4348-97d0-f9ccb1789bd8)
+
+
+
+
 </div>
 </details>
