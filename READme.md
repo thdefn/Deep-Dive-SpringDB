@@ -81,3 +81,10 @@
 
 </div>
 </details>
+<details>
+<summary>데이터 소스 </summary>
+<div markdown="1">
+
+- 커넥션을 얻는 방법은 앞서 학습한 JDBC DriverManager 를 직접 사용하거나, 커넥션 풀을 사용할 수 있다.
+</div>
+</details>
