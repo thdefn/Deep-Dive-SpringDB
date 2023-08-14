@@ -91,6 +91,8 @@
     ➡️ **커넥션을 획득하는 애플리케이션의 코드를 함께 변경**해야 한다. DriverManager 에서 HikariCP 로 의존 관계가 바뀌기 때문이다.
   - 뿐만 아니라 DPCP2 에서 HikariCP 로 커넥션 풀을 변경할 때에도 애플리케이션의 코드가 변경된다.
 - `DataSorce` 는 커넥션을 획득하는 방법을 추상화하는 인터페이스이다. 핵심 기능은 커넥션 조회 `getConnection()` 이다.
+  <img width="460" alt="스크린샷 2023-08-14 오전 8 49 25" src="https://github.com/thdefn/Deep-Dive-SpringDB/assets/80521474/4621ccad-40a3-4b41-bac2-ed34edbf3fa0">
+
 - 대부분의 커넥션 풀은 `DataSorce` 인터페이스를 이미 구현해두었다. 따라서 커넥션풀 구현 기술을 변경하고 싶으면 구현체를 갈아끼운다.
   - `JDBC DriverManager`를 이용하려면, `DataSorce` 인터페이스를 구현한`DriverManagerDataSource` 를 이용한다.
     
