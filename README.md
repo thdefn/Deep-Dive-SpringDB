@@ -85,6 +85,36 @@
 <summary>데이터 소스 </summary>
 <div markdown="1">
 
-- 커넥션을 얻는 방법은 앞서 학습한 JDBC DriverManager 를 직접 사용하거나, 커넥션 풀을 사용할 수 있다.
+- 커넥션을 얻는 방법은 앞서 학습한 `JDBC DriverManager` 를 직접 사용하거나, 커넥션 풀을 사용할 수 있다. 
+  - 만약 `JDBC DriverManager`를 통해 커넥션을 획득하다가, HikariCP 커넥션 풀을 사용하는 방법으로 변경한다면?
+    
+    ➡️ **커넥션을 획득하는 애플리케이션의 코드를 함께 변경**해야 한다. DriverManager 에서 HikariCP 로 의존 관계가 바뀌기 때문이다.
+  - 뿐만 아니라 DPCP2 에서 HikariCP 로 커넥션 풀을 변경할 때에도 애플리케이션의 코드가 변경된다.
+- `DataSorce` 는 커넥션을 획득하는 방법을 추상화하는 인터페이스이다. 핵심 기능은 커넥션 조회 `getConnection()` 이다.
+- 대부분의 커넥션 풀은 `DataSorce` 인터페이스를 이미 구현해두었다. 따라서 커넥션풀 구현 기술을 변경하고 싶으면 구현체를 갈아끼운다.
+  - `JDBC DriverManager`를 이용하려면, `DataSorce` 인터페이스를 구현한`DriverManagerDataSource` 를 이용한다.
+    
+    ```
+    DataSource dataSource = new DriverManagerDataSource(URL, USERNAME, PASSWORD);
+    Connection con1 = dataSource.getConnection();
+    Connection con2 = dataSource.getConnection();
+    ```
+  - `HikariCP` 를 통한 커넥션 풀링
+
+    ```
+    HikariDataSource dataSource = new HikariDataSource();
+    dataSource.setJdbcUrl(URL);
+    dataSource.setUsername(USERNAME);
+    dataSource.setPassword(PASSWORD);
+    dataSource.setMaximumPoolSize(10);
+    dataSource.setPoolName("MyPool");
+    
+    Connection con1 = dataSource.getConnection();
+    Connection con2 = dataSource.getConnection();
+    ```
+    - 커넥션 풀에 커넥션을 채울때는 별도의 쓰레드를 사용한다.
+    - 웹 애플리케이션에서 동시에 여러 요청이 들어오면 여러 쓰레드에서 커넥션 풀의 커넥션을 다양하게 가져간다.
+
+- `DataSorce` 를 사용하면 **설정과 사용을 분리**할 수 있다.
 </div>
 </details>
