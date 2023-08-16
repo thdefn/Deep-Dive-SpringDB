@@ -1,5 +1,12 @@
 
 
+### 📌
+- [JDBC 이해](#JDBC-이해)
+- [커넥션 풀과 데이터소스 이해](#커넥션-풀과-데이터소스-이해)
+- [트랜잭션 이해](#트랜잭션-이해)
+
+
+### Let Me Start
 1. H2 데이터베이스 다운로드
    - [h2 공식 사이트](https://www.h2database.com/html/download-archive.html)
 
@@ -11,7 +18,6 @@
 5. 그 이후는 프로토콜로 접속
    - JDBC URL: `jdbc:h2:tcp://localhost/~/test`
    - 사용자명: `sa`
-
 
 
 ### JDBC 이해
@@ -140,3 +146,15 @@
       insert into member(member_id, money) values ('data4', 10000);
       commit;
   ```
+<details>
+<summary>트랜잭션의 적용 </summary>
+<div markdown="1">
+
+- 트랜잭션은 비즈니스 로직이 있는 서비스 계층에서 시작한다.
+- 트랜잭션을 시작하려면 커넥션이 필요하다. 
+
+  ➡️ 서비스 계층에서 커넥션을 만들고, 트랜잭션 커밋 이후에 커넥션을 종료한다.
+- 트랜잭션을 사용하는 동안 같은 커넥션(=세션)을 유지한다.
+
+</div>
+</details>
